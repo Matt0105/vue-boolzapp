@@ -1,0 +1,99 @@
+:root {
+    --deep-green: #009688;
+    --bck-grey: #dcdbd3;
+    --bck-cold-grey: #d2dbdc;
+    --light-blue: #8edafc;
+    --msg-input: #f3eeea;
+    --dark-icon: #6b7376;
+    --light-icon: #b1b1b1;
+    --header-grey: #eaeaea;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+[class*="-header"] i{
+    margin: 0 5px;
+    color: var(--light-icon);
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+.back {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* height: 150px; */
+    /* background-color: var(--deep-green); */
+}
+
+/* .back-light {
+    width: 100%;
+    height: calc(100vh - 150px);
+    background: linear-gradient(180deg, var(--bck-grey) 0%, var(--bck-cold-grey) 100%);
+
+} */
+
+/* CONTAINER */
+
+.app-container {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+/* LEFT SIDE */
+
+/* HEADER */
+.left-side-app {
+    height: 100%;
+    width: 30%;
+    background-color: slateblue;
+}
+
+.left-header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 1px solid grey;
+    background-color: var(--header-grey);
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.action {
+    margin-right: 15px;
+}
+
+
+
+
+
+
+
+
+.right-side-app {
+    height: 100%;
+    width: 70%;
+    background-color: blue;
+}
