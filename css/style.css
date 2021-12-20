@@ -40,16 +40,16 @@
     display: flex;
     width: 100%;
     height: 100%;
-    /* height: 150px; */
-    /* background-color: var(--deep-green); */
+    background: linear-gradient(180deg, var(--bck-grey) 20%, var(--bck-cold-grey) 100%);
+}
+.back::before {
+    content: "";
+    height: 150px;
+    width: 100%;
+    background-color: var(--deep-green);
+    position: absolute;
 }
 
-/* .back-light {
-    width: 100%;
-    height: calc(100vh - 150px);
-    background: linear-gradient(180deg, var(--bck-grey) 0%, var(--bck-cold-grey) 100%);
-
-} */
 
 /* CONTAINER */
 
@@ -58,6 +58,7 @@
     width: 90%;
     height: 90%;
     margin: auto;
+    z-index: 100;
 }
 
 /* LEFT SIDE */
