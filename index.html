@@ -46,14 +46,14 @@
                     <!-- search -->
                     <div class="chat-search">
                         <i class="fas fa-search"></i>
-                        <input class="chat-search__input" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input @keyup="searchChat()" v-model="searchName" class="chat-search__input" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <!-- /search -->
                     
                     <!-- user list -->
                     <div class="user-list-container">
                         <ul class="user-list">
-                            <li 
+                            <li v-if="contacts[index].visible"
                              v-for="(contact, index) in contacts"
                              class="user-list__item"
                              @click="person = index">

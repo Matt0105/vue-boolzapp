@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         person: 0,
         myText: "",
+        searchName: "",
         contacts: [
             {
               name: "Michele",
@@ -144,6 +145,29 @@ const app = new Vue({
   
           this.myText = "";
         }
+      },
+
+      searchChat() {
+   
+        if(this.searchName.trim() != "") {
+
+          this.contacts.forEach((element) => {
+            if(element.name.toLowerCase().startsWith(this.searchName)) {
+              element.visible = true;
+            }
+            else {
+              element.visible = false;
+            }
+          });
+
+        }
+        else {
+          this.contacts.forEach(element => {
+            element.visible = true;
+          });
+        }
+
       }
     }
 });
+
