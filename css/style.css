@@ -137,6 +137,7 @@
     width: calc(100% - 75px);
     height: 100%;
     margin-left: var(--side-spacing);
+    overflow: hidden;
 }
 .text > a {
     color: var(--dark-icon);
@@ -212,6 +213,9 @@
 
 .text .preview {
     color: var(--light-icon);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .date {

@@ -53,14 +53,14 @@
                     <!-- user list -->
                     <div class="user-list-container">
                         <ul class="user-list">
-                            <li class="user-list__item">
+                            <li v-for="contact in contacts" class="user-list__item">
                                 <div class="contact">
-                                    <img class="profile-img" src="img/avatar_1.jpg" alt="">
+                                    <img class="profile-img" :src="`img/avatar${contact.avatar}.jpg`" alt="">
                                     <div class="text">
-                                        <h4 class="user-name">Michele</h4>
-                                        <p class="preview">ok...</p>
+                                        <h4 class="user-name">{{contact.name}}</h4>
+                                        <p class="preview">{{lastMessage(contact.messages)}}</p>
                                     </div>
-                                    <span class="date">20 12 2021 10:22:21</span>
+                                    <span class="date">{{lastMessageDate(contact.messages)}}</span>
                                 </div>
                             </li>
                         </ul>
@@ -69,7 +69,9 @@
 
                 </div>
 
+                <!-- right side app  -->
                 <div class="right-side-app">
+                    <!-- chat header  -->
                     <header class="right-header">
                         <div class="user">
                             <img class="profile-img" src="img/avatar_1.jpg" alt="">
@@ -84,6 +86,8 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </header>
+                    <!-- /chat header  -->
+
 
                     <div class="chat-container">
                         <ul class="message-list">
@@ -108,6 +112,7 @@
                         <i class="fas fa-microphone"></i>
                     </footer>
                 </div>
+                <!-- right side app  -->
             </div>
         </div>
         <!-- <div class="back-light"></div> -->
