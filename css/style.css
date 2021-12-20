@@ -259,9 +259,10 @@
 .message-container {
     /* position: relative; */
     display: inline-block;
-    min-width: 200px;
+    min-width: 180px;
     max-width: 60%;
     padding: 10px;
+    padding-top: 15px;
     border-radius: 10px;
     word-wrap: break-word;
 }
@@ -280,6 +281,7 @@
 }
 .received {
     background-color: white;
+    align-self: flex-start;
 }
 
 .message-input {

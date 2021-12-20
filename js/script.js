@@ -1,6 +1,8 @@
 const app = new Vue({
     el: "#app",
     data: {
+        person: 0,
+        myText: "",
         contacts: [
             {
               name: "Michele",
@@ -89,6 +91,7 @@ const app = new Vue({
           ]
     },
     methods: {
+
       lastMessage(messages) {
 
         let lastMex;
@@ -101,6 +104,7 @@ const app = new Vue({
 
         return lastMex;
       },
+
       lastMessageDate(messages) {
 
         let lastDate;
@@ -112,6 +116,34 @@ const app = new Vue({
         });
 
         return lastDate;
+      },
+
+      sendMessage() {
+        
+        if(this.myText.trim().length) {
+
+          let now = new Date();
+          let date = "";
+  
+          date += now.getDate() + "/";
+          date += now.getMonth()+1 + "/";
+          date += now.getFullYear() + " ";
+  
+          date += now.getHours() + ":";
+          date += now.getMinutes() + ":";
+          date += now.getSeconds();
+  
+  
+          let myMessage = {
+            text: this.myText,
+            date: date,
+            status: "sent",
+          }
+  
+          this.contacts[this.person].messages.push(myMessage);
+  
+          this.myText = "";
+        }
       }
     }
 });
