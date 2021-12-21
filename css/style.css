@@ -54,7 +54,7 @@ html {
 }
 .back::before {
     content: "";
-    height: 150px;
+    height: 20%;
     width: 100%;
     background-color: var(--deep-green);
     position: absolute;
