@@ -217,6 +217,7 @@ html {
 }
 
 .text .preview {
+    margin-top: 5px;
     color: var(--light-icon);
     text-overflow: ellipsis;
     overflow: hidden;
@@ -273,6 +274,7 @@ html {
     padding-top: 15px;
     border-radius: 10px;
     word-wrap: break-word;
+
 }
 
 .message-date {
@@ -287,6 +289,7 @@ html {
     background-color: var(--message-sent);
     align-self: flex-end;
 }
+
 .received {
     background-color: white;
     align-self: flex-start;
