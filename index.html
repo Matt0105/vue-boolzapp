@@ -59,7 +59,7 @@
                             <li v-if="contacts[index].visible"
                              v-for="(contact, index) in contacts"
                              class="user-list__item"
-                             @click="person = index">
+                             @click="person = index, selectChat()">
                                 <div class="contact">
                                     <img class="profile-img" :src="`img/avatar${contact.avatar}.jpg`" alt="">
                                     <div class="text">
@@ -79,6 +79,7 @@
                 <div class="right-side-app">
                     <!-- chat header  -->
                     <header class="right-header">
+                        <i class="fas fa-chevron-left back-chat unshow"></i>
                         <div class="user">
                             <img class="profile-img" :src="`img/avatar${contacts[person].avatar}.jpg`" alt="">
                             <div class="text">

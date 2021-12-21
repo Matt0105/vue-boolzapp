@@ -167,7 +167,49 @@ const app = new Vue({
           });
         }
 
+      },
+      selectChat() {
+        right.classList.add("full-size");
+        right.classList.remove("unshow");
+        left.classList.add("unshow");
+        back.classList.remove("unshow");
       }
     }
 });
 
+const back = document.querySelector(".back-chat");
+const left = document.querySelector(".left-side-app");
+const right = document.querySelector(".right-side-app");
+
+back.addEventListener("click", function() {
+
+  left.classList.remove("unshow");
+  left.classList.add("full-size");
+  right.classList.add("unshow");
+  right.classList.remove("full-size");
+});
+
+if(window.screen.width < 900) {
+  right.classList.add("full-size");
+  left.classList.add("unshow");
+  back.classList.remove("unshow");
+}
+else{
+  right.classList.remove("full-size");
+  left.classList.remove("unshow");
+  back.classList.add("unshow");
+}
+
+window.addEventListener("resize", function(){
+  
+  if(window.screen.width < 900) {
+    right.classList.add("full-size");
+    left.classList.add("unshow");
+    back.classList.remove("unshow");
+  }
+  else{
+    right.classList.remove("full-size");
+    left.classList.remove("unshow");
+    back.classList.add("unshow");
+  }
+});
