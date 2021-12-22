@@ -95,15 +95,7 @@ const app = new Vue({
 
       lastMessage(messages) {
 
-        let lastMex;
-
-        messages.forEach(element => {
-          if(element.status == "received") {
-            lastMex = element.text;
-          }
-        });
-
-        return lastMex;
+        return messages[messages.length - 1].text;
       },
 
       lastMessageDate(messages) {
@@ -122,8 +114,39 @@ const app = new Vue({
       sendMessage() {
         
         if(this.myText.trim().length) {
+  
+          let myMessage = {
+            text: this.myText,
+            date: this.getDate(),
+            status: "sent",
+          }
+  
+          this.contacts[this.person].messages.push(myMessage);
+  
+          this.myText = "";
 
-          let now = new Date();
+          this.answer();
+        }
+      },
+
+      answer() {
+
+        
+        setTimeout(() => {
+
+          let answerMessage = {
+            text: "ok",
+            date: this.getDate(),
+            status: "received"
+          }
+        this.contacts[this.person].messages.push(answerMessage);
+
+        }, 1000)
+      },
+
+      getDate() {
+
+        let now = new Date();
           let date = "";
   
           date += now.getDate() + "/";
@@ -133,18 +156,8 @@ const app = new Vue({
           date += now.getHours() + ":";
           date += now.getMinutes() + ":";
           date += now.getSeconds();
-  
-  
-          let myMessage = {
-            text: this.myText,
-            date: date,
-            status: "sent",
-          }
-  
-          this.contacts[this.person].messages.push(myMessage);
-  
-          this.myText = "";
-        }
+
+          return date;
       },
 
       searchChat() {
