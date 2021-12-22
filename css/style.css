@@ -279,13 +279,13 @@ html {
     padding: 10px;
     padding-top: 15px;
     border-radius: 10px;
-    word-wrap: break-word;
 }
 
 .message {
     display: inline-block;
     padding-right: 25px;
     cursor: default;
+    overflow-wrap: break-word;
 }
 
 .message-container .opt-btn {
@@ -320,7 +320,7 @@ html {
     right: 5px;
 }
 .received .opt-box {
-    left: 160px;
+    left: 90%;
 }
 
 .select-opt {
@@ -364,7 +364,7 @@ html {
 }
 
 .message-input > i {
-    /* padding: 0 30px; */
+    padding: 0 30px;
     width: 80px;
     text-align: center;
     font-size: 1.2rem;

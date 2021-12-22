@@ -6,6 +6,7 @@ const app = new Vue({
         myText: "",
         searchName: "",
         showClass: "", 
+        lastAccess: "",
         contacts: [
             {
               name: "Michele",
@@ -104,17 +105,17 @@ const app = new Vue({
 
         let lastDate;
         let nReceived = 0;
-        let lastAccess;
 
         messages.forEach(element => {
           if(element.status == "received") {
             lastDate = element.date;
-            nReceived++;
           }
         });
-        
-
-        return lastDate;
+       
+          if(lastDate == undefined) {
+            return false;
+          }
+          return lastDate;
       },
 
       sendMessage() {
@@ -199,11 +200,10 @@ const app = new Vue({
       
       deleteMessage(messages) {
         messages.splice(this.optMessage, 1);
+        this.optMessage = null;
       }
     },
     created() {
-      this.copyContact = this.contacts;
-      console.log(this.copyContact);
     }
 });
 

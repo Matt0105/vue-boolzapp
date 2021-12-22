@@ -84,7 +84,8 @@
                             <img class="profile-img" :src="`img/avatar${contacts[person].avatar}.jpg`" alt="">
                             <div class="text">
                                 <h4 class="user-name">{{contacts[person].name}}</h4>
-                                <p class="access">Ultimo accesso oggi alle {{lastMessageDate(copyContact[person].messages)}}</p>
+                                <p v-if="lastMessageDate(contacts[person].messages) != false" class="access">Ultimo accesso oggi alle {{lastMessageDate(contacts[person].messages)}}</p>
+                                <p v-else class="access">Online</p>
                             </div>
                         </div>
                         <div class="action">
