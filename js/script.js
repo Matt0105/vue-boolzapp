@@ -2,8 +2,10 @@ const app = new Vue({
     el: "#app",
     data: {
         person: 0,
+        optMessage: null,
         myText: "",
         searchName: "",
+        showClass: "",
         contacts: [
             {
               name: "Michele",
@@ -188,8 +190,10 @@ const app = new Vue({
           left.classList.add("unshow");
           back.classList.remove("unshow");
         }
+        console.log(this.optMessage);
         
-      }
+      },
+      
     }
 });
 
