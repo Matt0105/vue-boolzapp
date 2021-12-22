@@ -182,10 +182,13 @@ const app = new Vue({
 
       },
       selectChat() {
-        right.classList.add("full-size");
-        right.classList.remove("unshow");
-        left.classList.add("unshow");
-        back.classList.remove("unshow");
+        if(window.screen.width < 900) {
+          right.classList.add("full-size");
+          right.classList.remove("unshow");
+          left.classList.add("unshow");
+          back.classList.remove("unshow");
+        }
+        
       }
     }
 });
@@ -217,12 +220,15 @@ window.addEventListener("resize", function(){
   
   if(window.screen.width < 900) {
     right.classList.add("full-size");
-    left.classList.add("unshow");
+    if(!right.classList.contains("unshow"))
+      left.classList.add("unshow");
     back.classList.remove("unshow");
   }
   else{
+    right.classList.remove("unshow");
     right.classList.remove("full-size");
     left.classList.remove("unshow");
+    left.classList.remove("full-size");
     back.classList.add("unshow");
   }
 });
