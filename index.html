@@ -84,7 +84,7 @@
                             <img class="profile-img" :src="`img/avatar${contacts[person].avatar}.jpg`" alt="">
                             <div class="text">
                                 <h4 class="user-name">{{contacts[person].name}}</h4>
-                                <p class="access">Ultimo accesso oggi alle {{lastMessageDate(contacts[person].messages)}}</p>
+                                <p class="access">Ultimo accesso oggi alle {{lastMessageDate(copyContact[person].messages)}}</p>
                             </div>
                         </div>
                         <div class="action">
@@ -104,7 +104,7 @@
                                     <button @click="optMessage = index" class="opt-btn"><i class="fas fa-chevron-down"></i></button>
                                     <div @mouseleave="optMessage = null" v-show="optMessage == index" class="opt-box">
                                         <ul class="select-opt">
-                                            <li class="opt-item">Delete Message</li>
+                                            <li @click="deleteMessage(contacts[person].messages)" class="opt-item">Delete Message</li>
                                             <li class="opt-item">Message Info</li>
                                         </ul>
                                     </div>

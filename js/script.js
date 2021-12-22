@@ -5,7 +5,7 @@ const app = new Vue({
         optMessage: null,
         myText: "",
         searchName: "",
-        showClass: "",
+        showClass: "", 
         contacts: [
             {
               name: "Michele",
@@ -103,12 +103,16 @@ const app = new Vue({
       lastMessageDate(messages) {
 
         let lastDate;
+        let nReceived = 0;
+        let lastAccess;
 
         messages.forEach(element => {
           if(element.status == "received") {
             lastDate = element.date;
+            nReceived++;
           }
         });
+        
 
         return lastDate;
       },
@@ -124,7 +128,7 @@ const app = new Vue({
           }
   
           this.contacts[this.person].messages.push(myMessage);
-  
+
           this.myText = "";
 
           this.answer();
@@ -142,7 +146,6 @@ const app = new Vue({
             status: "received"
           }
         this.contacts[this.person].messages.push(answerMessage);
-
         }, 1000)
       },
 
@@ -194,6 +197,13 @@ const app = new Vue({
         
       },
       
+      deleteMessage(messages) {
+        messages.splice(this.optMessage, 1);
+      }
+    },
+    created() {
+      this.copyContact = this.contacts;
+      console.log(this.copyContact);
     }
 });
 
