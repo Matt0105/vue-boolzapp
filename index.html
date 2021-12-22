@@ -110,7 +110,10 @@
                     <footer class="message-input">
                         <i class="far fa-smile"></i>
                         <input @keyup.enter="sendMessage()" v-model="myText" type="text" placeholder="Scrivi un messaggio">
-                        <i class="fas fa-microphone"></i>
+                       
+                        <i v-if="myText.trim() != ''" @click="sendMessage()" class="fas fa-paper-plane"></i>
+                        <i v-else class="fas fa-microphone"></i>
+
                     </footer>
                 </div>
                 <!-- right side app  -->

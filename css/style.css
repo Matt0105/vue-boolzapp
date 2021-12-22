@@ -311,14 +311,16 @@ html {
 }
 
 .message-input > i {
-    padding: 0 30px;
+    /* padding: 0 30px; */
+    width: 80px;
+    text-align: center;
     font-size: 1.2rem;
     color: var(--dark-icon);
     cursor: pointer;
 }
 
 .message-input > input {
-    width: calc(100% - 120px - 2.4rem);
+    width: calc(100% - 160px);
     height: 70%;
     border: none;
     outline: none;
