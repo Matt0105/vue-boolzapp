@@ -88,19 +88,25 @@
                                 <p v-else class="access">Online</p>
                             </div>
                         </div>
-                        <div class="action">
+                        <div @mouseleave="chatMenu = false" class="action">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>
-                            <i class="fas fa-ellipsis-v"></i>
+                            <i @click="chatMenu = !chatMenu"  class="fas fa-ellipsis-v"></i>
+                            <div @mouseleave="chatMenu = false" v-show="chatMenu" class="opt-box chat-menu">
+                                <ul class="select-opt">
+                                    <li @click="deleteAllMessages()" class="opt-item">Delete All Messages</li>
+                                    <li @click="deleteChat()" class="opt-item">Delete Chat</li>
+                                </ul>
+                            </div>
                         </div>
                     </header>
                     <!-- /chat header  -->
 
 
                     <div class="chat-container">
-                        <ul class="message-list">
+                        <ul v-if="contacts[person].messages.length > 0" class="message-list">
                             <li v-for="(message, index) in contacts[person].messages" class="message-list__item">
-                                <div @mouseleave="optMessage = null" class="message-container" :class="message.status">
+                                <div v-if="message.text != ''" @mouseleave="optMessage = null" class="message-container" :class="message.status">
                                     <p class="message">{{message.text}}</p>
                                     <button @click="optMessage = index" class="opt-btn"><i class="fas fa-chevron-down"></i></button>
                                     <div @mouseleave="optMessage = null" v-show="optMessage == index" class="opt-box">

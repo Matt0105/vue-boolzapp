@@ -7,6 +7,7 @@ const app = new Vue({
         searchName: "",
         showClass: "", 
         lastAccess: "",
+        chatMenu: false,
         contacts: [
             {
               name: "Michele",
@@ -103,19 +104,7 @@ const app = new Vue({
 
       lastMessageDate(messages) {
 
-        let lastDate;
-        let nReceived = 0;
-
-        messages.forEach(element => {
-          if(element.status == "received") {
-            lastDate = element.date;
-          }
-        });
-       
-          if(lastDate == undefined) {
-            return false;
-          }
-          return lastDate;
+        return messages[messages.length - 1].date;
       },
 
       sendMessage() {
@@ -194,16 +183,41 @@ const app = new Vue({
           left.classList.add("unshow");
           back.classList.remove("unshow");
         }
-        console.log(this.optMessage);
         
       },
-      
+      //da rivedere
       deleteMessage(messages) {
-        messages.splice(this.optMessage, 1);
+        
+        if(messages.length > 1) {
+          messages.splice(this.optMessage, 1);
+        }
+        else {
+          messages[0].text = ""; 
+          messages[0].date = ""; 
+        }
         this.optMessage = null;
+
+      },
+
+      deleteAllMessages() {
+        this.contacts[this.person].messages.splice(0,this.contacts[this.person].messages.length - 1);
+        
+        this.contacts[this.person].messages[0].text = "";
+        this.contacts[this.person].messages[0].date = "";
+          
+        
+        this.chatMenu = false;
+      },
+
+      deleteChat() {
+        this.contacts.splice(this.person, 1);
+
+        this.chatMenu = false;
       }
     },
     created() {
+
+
     }
 });
 

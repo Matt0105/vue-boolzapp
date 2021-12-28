@@ -111,6 +111,11 @@ html {
 }
 
 .action {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
     width: 90px;
     margin-right: var(--side-spacing);
 }
@@ -308,7 +313,6 @@ html {
 .opt-box {
     /* display: none; */
     position: absolute;
-    top: 30px;
     width: 200px;
     background-color: var(--bck-light-grey);
     padding: 5px;
@@ -316,11 +320,17 @@ html {
     box-shadow: 2px 2px 10px grey;
     z-index: 10;
 }
+.chat-menu {
+    top: 40px;
+    right: 5px;
+}
 .sent .opt-box {
+    top: 30px;
     right: 5px;
 }
 .received .opt-box {
     left: 90%;
+    top: 30px;
 }
 
 .select-opt {
