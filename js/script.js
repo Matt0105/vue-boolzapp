@@ -137,16 +137,30 @@ const app = new Vue({
 
       answer() {
 
-        
         setTimeout(() => {
+          this.lastAccess = "Sta Scrivendo...";
 
-          let answerMessage = {
-            text: this.possibleAnswers[Math.floor(Math.random() * (this.possibleAnswers.length))],
-            date: this.getDate(),
-            status: "received"
-          }
-        this.contacts[this.person].messages.push(answerMessage);
-        }, 1000)
+          setTimeout(() => {
+
+            this.lastAccess = "Online";
+
+            let answerMessage = {
+              text: this.possibleAnswers[Math.floor(Math.random() * (this.possibleAnswers.length))],
+              date: this.getDate(),
+              status: "received"
+            }
+            this.contacts[this.person].messages.push(answerMessage);
+
+            setTimeout(() => {
+              this.lastAccess = `Ultimo accesso ${this.getDate()}`;
+  
+            }, 2000);
+  
+          }, 2000);
+
+        },1000);
+        
+        
       },
 
       getDate() {

@@ -84,8 +84,9 @@
                             <img v-if="contacts[person].avatar != ''" class="profile-img" :src="`img/avatar${contacts[person].avatar}.jpg`" alt="">
                             <div v-if="contacts[person].avatar != ''" class="text">
                                 <h4 class="user-name">{{contacts[person].name}}</h4>
-                                <p v-if="lastMessageDate(contacts[person].messages) != false" class="access">Ultimo accesso oggi alle {{lastMessageDate(contacts[person].messages)}}</p>
-                                <p v-else class="access">Online</p>
+                                <!-- <p v-if="lastMessageDate(contacts[person].messages) != false" class="access">Ultimo accesso oggi alle {{lastMessageDate(contacts[person].messages)}}</p>
+                                <p v-else class="access">Online</p> -->
+                                <p class="access">{{lastAccess}}</p>
                             </div>
                         </div>
                         <div @mouseleave="chatMenu = false" class="action">
