@@ -55,7 +55,7 @@
                     
                     <!-- user list -->
                     <div class="user-list-container">
-                        <ul class="user-list">
+                        <ul v-if="contacts.length > 0 && contacts[0].avatar != ''" class="user-list">
                             <li v-if="contacts[index].visible"
                              v-for="(contact, index) in contacts"
                              class="user-list__item"
@@ -81,8 +81,8 @@
                     <header class="right-header">
                         <i class="fas fa-chevron-left back-chat unshow"></i>
                         <div class="user">
-                            <img class="profile-img" :src="`img/avatar${contacts[person].avatar}.jpg`" alt="">
-                            <div class="text">
+                            <img v-if="contacts[person].avatar != ''" class="profile-img" :src="`img/avatar${contacts[person].avatar}.jpg`" alt="">
+                            <div v-if="contacts[person].avatar != ''" class="text">
                                 <h4 class="user-name">{{contacts[person].name}}</h4>
                                 <p v-if="lastMessageDate(contacts[person].messages) != false" class="access">Ultimo accesso oggi alle {{lastMessageDate(contacts[person].messages)}}</p>
                                 <p v-else class="access">Online</p>
@@ -91,7 +91,7 @@
                         <div @mouseleave="chatMenu = false" class="action">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>
-                            <i @click="chatMenu = !chatMenu"  class="fas fa-ellipsis-v"></i>
+                            <button @click="chatMenu = !chatMenu" class="chat-btn"><i   class="fas fa-ellipsis-v"></i></button>
                             <div @mouseleave="chatMenu = false" v-show="chatMenu" class="opt-box chat-menu">
                                 <ul class="select-opt">
                                     <li @click="deleteAllMessages()" class="opt-item">Delete All Messages</li>

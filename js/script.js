@@ -185,7 +185,7 @@ const app = new Vue({
         }
         
       },
-      //da rivedere
+
       deleteMessage(messages) {
         
         if(messages.length > 1) {
@@ -210,7 +210,17 @@ const app = new Vue({
       },
 
       deleteChat() {
-        this.contacts.splice(this.person, 1);
+        
+        this.deleteAllMessages();
+        
+        if(this.contacts.length > 1) {
+          this.contacts.splice(this.person, 1);
+        }
+        else {
+          this.contacts[0].name = ""; 
+          this.contacts[0].avatar = "";
+          this.contacts[0].visible = false; 
+        }
 
         this.chatMenu = false;
       }

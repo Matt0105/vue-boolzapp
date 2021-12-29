@@ -120,6 +120,12 @@ html {
     margin-right: var(--side-spacing);
 }
 
+.action .chat-btn:hover i,
+.action .chat-btn:target i
+.action .chat-btn:focus i
+{
+    color: var(--dark-icon);
+}
 /* INFO */
 
 .info {
@@ -306,8 +312,11 @@ html {
     display: inline-block;
 }
 
-.opt-btn {
+.opt-btn, .chat-btn {
     border: none;
+    padding: 3px;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .opt-box {
