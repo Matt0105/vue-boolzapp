@@ -8,6 +8,16 @@ const app = new Vue({
         showClass: "", 
         lastAccess: "",
         chatMenu: false,
+        possibleAnswers: [
+          "Non lo so",
+          "Può darsi",
+          "Sono d'accordo con te",
+          "Con tutta probabilità è come dici tu",
+          "Sei sicuro?",
+          "Hai provato a pensarci?",
+          "Non sono d'accordo con te",
+          "Ma come ti permetti?!"
+        ],
         contacts: [
             {
               name: "Michele",
@@ -131,7 +141,7 @@ const app = new Vue({
         setTimeout(() => {
 
           let answerMessage = {
-            text: "ok",
+            text: this.possibleAnswers[Math.floor(Math.random() * (this.possibleAnswers.length))],
             date: this.getDate(),
             status: "received"
           }
@@ -212,7 +222,7 @@ const app = new Vue({
       deleteChat() {
         
         this.deleteAllMessages();
-        
+
         if(this.contacts.length > 1) {
           this.contacts.splice(this.person, 1);
         }
