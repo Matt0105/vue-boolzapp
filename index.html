@@ -17,6 +17,11 @@
     
     <div id="app" class="container">
 
+        <div @click="darkMode()" class="dark-mode-btn">
+            <i v-if="dark == false" class="fas fa-moon"></i>
+            <i v-else class="fas fa-sun"></i>
+        </div>
+
         <div class="splash">
             <div class="splash__content">
                 <img class="splash__content-logo" src="img/whatsapp-logo-final-1280x886.webp" alt="">
@@ -149,5 +154,6 @@
     </div>
 
     <script src="js/script.js"></script>
+    
 </body>
 </html>

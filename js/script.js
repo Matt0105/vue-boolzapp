@@ -9,6 +9,7 @@ const app = new Vue({
         showClass: "", 
         lastAccess: "",
         chatMenu: false,
+        dark: false,
         possibleAnswers: [
           "Non lo so",
           "Può darsi",
@@ -250,6 +251,30 @@ const app = new Vue({
         }
 
         this.chatMenu = false;
+      },
+
+      darkMode() {
+        
+        if(!this.dark) {
+          document.documentElement.style.setProperty('--bg-theme-color', '#201f1f');
+          document.documentElement.style.setProperty('--word-theme-color', 'white');
+          document.documentElement.style.setProperty('--header-grey', '#201f1f');
+          document.documentElement.style.setProperty('--msg-input', '#201f1f');
+          document.documentElement.style.setProperty('--bck-grey', '#474745');
+          document.documentElement.style.setProperty('--bck-cold-grey', '#565b5c');
+          
+        }
+        else {
+          document.documentElement.style.setProperty('--bg-theme-color', 'white');
+          document.documentElement.style.setProperty('--word-theme-color', 'black');
+          document.documentElement.style.setProperty('--header-grey', '#eaeaea');
+          document.documentElement.style.setProperty('--msg-input', '#f3eeea');
+          document.documentElement.style.setProperty('--bck-grey', '#dcdbd3');
+          document.documentElement.style.setProperty('--bck-cold-grey', '#e7eef0');
+
+          
+        }
+        this.dark = !this.dark;
       }
     },
     created() {
