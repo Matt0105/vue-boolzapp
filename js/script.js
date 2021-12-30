@@ -253,8 +253,14 @@ const app = new Vue({
       }
     },
     created() {
+      
+    },
+    mounted() {
+      const splash = document.querySelector(".splash");
 
-
+      setTimeout(() => {
+        splash.classList.add("unshow");
+      }, 1000);
     }
 });
 
