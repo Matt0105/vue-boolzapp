@@ -59,7 +59,7 @@
                             <li v-if="contacts[index].visible"
                              v-for="(contact, index) in contacts"
                              class="user-list__item"
-                             @click="person = index, selectChat()">
+                             @click="person = index, selectChat(), chatSelected = true">
                                 <div class="contact">
                                     <img class="profile-img" :src="`img/avatar${contact.avatar}.jpg`" alt="">
                                     <div class="text">
@@ -81,12 +81,12 @@
                     <header class="right-header">
                         <i class="fas fa-chevron-left back-chat unshow"></i>
                         <div class="user">
-                            <img v-if="contacts[person].avatar != ''" class="profile-img" :src="`img/avatar${contacts[person].avatar}.jpg`" alt="">
-                            <div v-if="contacts[person].avatar != ''" class="text">
+                            <img v-if="chatSelected != false" class="profile-img" :src="`img/avatar${contacts[person].avatar}.jpg`" alt="">
+                            <div v-if="chatSelected != false" class="text">
                                 <h4 class="user-name">{{contacts[person].name}}</h4>
-                                <!-- <p v-if="lastMessageDate(contacts[person].messages) != false" class="access">Ultimo accesso oggi alle {{lastMessageDate(contacts[person].messages)}}</p>
-                                <p v-else class="access">Online</p> -->
-                                <p class="access">{{lastAccess}}</p>
+                                
+                                <p v-if="lastAccess != ''" class="access">{{lastAccess}}</p>
+                                <p v-else class="access">Ultimo accesso {{lastMessageDate(contacts[person].messages)}}</p>
                             </div>
                         </div>
                         <div @mouseleave="chatMenu = false" class="action">
@@ -105,7 +105,7 @@
 
 
                     <div class="chat-container">
-                        <ul v-if="contacts[person].messages.length > 0" class="message-list">
+                        <ul v-if="contacts[person].messages.length > 0 && chatSelected != false" class="message-list">
                             <li v-for="(message, index) in contacts[person].messages" class="message-list__item">
                                 <div v-if="message.text != ''" @mouseleave="optMessage = null" class="message-container" :class="message.status">
                                     <p class="message">{{message.text}}</p>
@@ -120,6 +120,9 @@
                                 </div>
                             </li>
                         </ul>
+                        <div v-else class="welcome">
+                            <p class="welcome-text">Benvenuto in Whatsapp! Clicca su una chat per visualizzare la conversazione.</p>
+                        </div>
                     </div>
 
                     <footer class="message-input">

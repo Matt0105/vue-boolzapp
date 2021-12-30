@@ -2,6 +2,7 @@ const app = new Vue({
     el: "#app",
     data: {
         person: 0,
+        chatSelected: false,
         optMessage: null,
         myText: "",
         searchName: "",
@@ -244,6 +245,8 @@ const app = new Vue({
           this.contacts[0].name = ""; 
           this.contacts[0].avatar = "";
           this.contacts[0].visible = false; 
+
+          this.chatSelected = false;
         }
 
         this.chatMenu = false;
