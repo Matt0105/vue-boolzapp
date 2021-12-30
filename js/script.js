@@ -121,7 +121,7 @@ const app = new Vue({
 
       sendMessage() {
         
-        if(this.myText.trim().length) {
+        if(this.myText.trim().length && chatSelected != false) {
   
           let myMessage = {
             text: this.myText,
