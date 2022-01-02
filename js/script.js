@@ -302,10 +302,17 @@ const app = new Vue({
     },
     mounted() {
       const splash = document.querySelector(".splash");
+      const tl = gsap.timeline({defaults: {duration: 0.75}})
+      tl.fromTo(".splash__content", {scale: 0}, {scale: 1, ease: "elastic.out(1, 0.4)"});
+      tl.fromTo(".splash__content-logo", {opacity: 0, x: -400, rotation: "-360deg"}, {opacity: 1, x: 0, rotation: "0deg"}, '<50%');
+
+      tl.fromTo(".splash__content-text", {opacity: 0, y: 400}, {opacity: 1, y: 0, ease: "elastic.out(1, 0.4)"});
+
+      tl.fromTo(".charge", {width: 0, opacity: 0}, {width: "85%", opacity: 1, duration: 1});
 
       setTimeout(() => {
         splash.classList.add("unshow");
-      }, 1000);
+      }, 3000);
     },
 
 
