@@ -17,10 +17,19 @@
     
     <div id="app" class="container">
 
-        <div @click="darkMode()" class="dark-mode-btn">
+        <!-- <div @click="darkMode()" class="dark-mode-btn style-btn">
             <i v-if="dark == false" class="fas fa-moon"></i>
             <i v-else class="fas fa-sun"></i>
         </div>
+
+        <div @click="fontClick = !fontClick" class="font-size-btn style-btn">
+            <i class="fas fa-font"></i>
+        </div>
+        <div v-if="fontClick == true" class="font-size__drop-menu">
+            <div @click="changeFont('s')" class="style-btn secondary-btn small">S</div>
+            <div @click="changeFont('m')" class="style-btn secondary-btn medium">M</div>
+            <div @click="changeFont('l')" class="style-btn secondary-btn large">L</div>
+        </div> -->
 
         <div class="splash">
             <div class="splash__content">
@@ -102,6 +111,24 @@
                                 <p v-else class="access">Ultimo accesso {{lastMessageDate(contacts[person].messages)}}</p>
                             </div>
                         </div>
+
+                        <!-- Options buttons -->
+                        <div @click="darkMode()" class="dark-mode-btn style-btn">
+                            <i v-if="dark == false" class="fas fa-moon"></i>
+                            <i v-else class="fas fa-sun"></i>
+                        </div>
+                
+                        <div @click="fontClick = !fontClick" :style="fontClick ? 'opacity: 1;' : ''" class="font-size-btn style-btn">
+                            <i class="fas fa-font"></i>
+                        </div>
+                        <div v-if="fontClick == true" class="font-size__drop-menu">
+                            <div @click="changeFont('s')" class="style-btn secondary-btn small">S</div>
+                            <div @click="changeFont('m')" class="style-btn secondary-btn medium">M</div>
+                            <div @click="changeFont('l')" class="style-btn secondary-btn large">L</div>
+                        </div>
+                        <!-- /Options buttons -->
+
+
                         <div @mouseleave="chatMenu = false" class="action">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>

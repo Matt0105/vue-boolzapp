@@ -10,6 +10,7 @@ const app = new Vue({
         lastAccess: "",
         chatMenu: false,
         dark: false,
+        fontClick: false,
         possibleAnswers: [
           "Non lo so",
           "Può darsi",
@@ -121,7 +122,7 @@ const app = new Vue({
 
       sendMessage() {
         
-        if(this.myText.trim().length && chatSelected != false) {
+        if(this.myText.trim().length && this.chatSelected != false) {
   
           let myMessage = {
             text: this.myText,
@@ -203,7 +204,7 @@ const app = new Vue({
 
       },
       selectChat() {
-        if(window.screen.width < 900) {
+        if(window.innerWidth < 768) {
           right.classList.add("full-size");
           right.classList.remove("unshow");
           left.classList.add("unshow");
@@ -275,10 +276,29 @@ const app = new Vue({
           
         }
         this.dark = !this.dark;
-      }
+
+        
+      },
+
+      changeFont(button) {
+
+        if(button == "s") {
+          document.documentElement.style.setProperty('--user-font-size', '80%');
+        }
+        else if(button == "m") {
+          document.documentElement.style.setProperty('--user-font-size', '100%');
+        }
+        else {
+          document.documentElement.style.setProperty('--user-font-size', '120%');
+        }
+        this.fontClick = !this.fontClick;
+      },
+
     },
+
     created() {
-      
+      this.changeSize(this.test);
+      this.test.addEventListener("resize", this.changeSize);
     },
     mounted() {
       const splash = document.querySelector(".splash");
@@ -286,7 +306,9 @@ const app = new Vue({
       setTimeout(() => {
         splash.classList.add("unshow");
       }, 1000);
-    }
+    },
+
+
 });
 
 const back = document.querySelector(".back-chat");
@@ -301,7 +323,7 @@ back.addEventListener("click", function() {
   right.classList.remove("full-size");
 });
 
-if(window.screen.width < 900) {
+if(window.innerWidth< 768) {
   right.classList.add("full-size");
   left.classList.add("unshow");
   back.classList.remove("unshow");
@@ -314,7 +336,7 @@ else{
 
 window.addEventListener("resize", function(){
   
-  if(window.screen.width < 900) {
+  if(window.innerWidth < 768) {
     right.classList.add("full-size");
     if(!right.classList.contains("unshow"))
       left.classList.add("unshow");
