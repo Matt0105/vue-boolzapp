@@ -257,13 +257,13 @@ const app = new Vue({
       darkMode() {
         
         if(!this.dark) {
-          document.documentElement.style.setProperty('--bg-theme-color', '#201f1f');
+          document.documentElement.style.setProperty('--bg-theme-color', '#1F2C33');
           document.documentElement.style.setProperty('--word-theme-color', 'white');
-          document.documentElement.style.setProperty('--header-grey', '#201f1f');
-          document.documentElement.style.setProperty('--msg-input', '#201f1f');
+          document.documentElement.style.setProperty('--header-grey', '#1F2C33');
+          document.documentElement.style.setProperty('--msg-input', '#1F2C33');
           document.documentElement.style.setProperty('--bck-grey', '#474745');
           document.documentElement.style.setProperty('--bck-cold-grey', '#565b5c');
-          
+          document.documentElement.style.setProperty('--bg-theme', 'url(../img/bg-dark.jpeg)');
         }
         else {
           document.documentElement.style.setProperty('--bg-theme-color', 'white');
@@ -272,8 +272,7 @@ const app = new Vue({
           document.documentElement.style.setProperty('--msg-input', '#f3eeea');
           document.documentElement.style.setProperty('--bck-grey', '#dcdbd3');
           document.documentElement.style.setProperty('--bck-cold-grey', '#e7eef0');
-
-          
+          document.documentElement.style.setProperty('--bg-theme', 'url(../img/mine.jpg)');
         }
         this.dark = !this.dark;
 
@@ -310,8 +309,6 @@ const app = new Vue({
     },
 
     created() {
-      this.changeSize(this.test);
-      this.test.addEventListener("resize", this.changeSize);
     },
     mounted() {
       const splash = document.querySelector(".splash");
