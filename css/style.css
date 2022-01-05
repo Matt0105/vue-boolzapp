@@ -89,12 +89,15 @@ html {
 
 .font-size-btn {
     margin-right: 1rem;
+    transition: opacity 1s;
 }
 
 .font-size__drop-menu {
     position: relative;
     display: flex;
+    overflow: hidden;
 }
+
 
 .splash {
     position: absolute;

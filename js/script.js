@@ -294,6 +294,19 @@ const app = new Vue({
         this.fontClick = !this.fontClick;
       },
 
+      clickFontBtn() {
+
+        if(!this.fontClick) {
+
+          gsap.fromTo(".font-size__drop-menu", {opacity: 0, width: 0}, {opacity: 1, width: "20%", duration: 0.75});
+        } 
+        else {
+          gsap.fromTo(".font-size__drop-menu", {opacity: 1, width: "20%"}, {opacity: 0, width: 0, duration: 0.75});
+        }
+
+        this.fontClick = !this.fontClick;
+      }
+
     },
 
     created() {
@@ -356,4 +369,18 @@ window.addEventListener("resize", function(){
     left.classList.remove("full-size");
     back.classList.add("unshow");
   }
+});
+
+const fontBtn = document.querySelector(".font-size-btn");
+
+fontBtn.addEventListener("click", function() {
+  
+  if(!this.fontClick) {
+
+    gsap.fromTo(".font-size__drop-menu", {opacity: 0, width: 0}, {opacity: 1, width: "20%", duration: 0.75});
+  } 
+  else {
+    gsap.fromTo(".font-size__drop-menu", {opacity: 1, width: "20%"}, {opacity: 0, width: 0, duration: 0.75});
+  }
+
 });

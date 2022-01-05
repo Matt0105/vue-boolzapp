@@ -110,7 +110,7 @@
                             <i v-else class="fas fa-sun"></i>
                         </div>
                 
-                        <div @click="fontClick = !fontClick" :style="fontClick ? 'opacity: 1;' : ''" class="font-size-btn style-btn">
+                        <div @click="clickFontBtn()" :style="fontClick ? 'opacity: 1;' : ''" class="font-size-btn style-btn">
                             <i class="fas fa-font"></i>
                         </div>
                         <div v-if="fontClick == true" class="font-size__drop-menu">
